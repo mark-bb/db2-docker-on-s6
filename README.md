@@ -1,4 +1,4 @@
-# db2-docker-on-s6
+# db2-docker-on-s6 
 Docker images with root and non-root [IBM DB2](https://www.ibm.com/docs/en/db2) v11.1+ for Linux installations building based on [s6-overlay](https://github.com/just-containers/s6-overlay/blob/master/README.md).
 ## Introduction
 This was tested on DB2 for LUW 11.1, 11.5, 12.1 with the following base x86-64 OS images:

@@ -48,7 +48,7 @@ update_upgrade() {
 
   for db in $(list_local_dbs); do
     # Check from the db cfg if the upgrade is needed
-    status=$(su - ${DB2INSTANCE?} -c "db2 get db cfg for ${db?} | awk -F'= ' '/release level/ {print $2}' | sort -u | wc -l")
+    status=$(su - ${DB2INSTANCE?} -c "db2 get db cfg for ${db?} | awk -F'= ' '/release level/ {print \$2}' | sort -u | wc -l")
     if [ ${status?} -ne 1 ]; then
       # Upgrade
       su - ${DB2INSTANCE?} -c "db2 upgrade database ${db?}"

@@ -1,0 +1,14 @@
+ARG         IMAGE_BASE
+
+FROM        $IMAGE_BASE
+MAINTAINER  Mark Barinstein <mark.barinstein@gmail.com>
+ARG         INSTALLCMD=/setup/scripts/install.sh
+ARG         DB2_VRM
+
+COPY        cfg/ /setup/
+ENV         DB2_VRM=$DB2_VRM
+RUN         --mount=type=bind,source=distrib,target=/tmp/distrib --mount=type=secret,id=secret $INSTALLCMD
+
+USER        root 
+WORKDIR     /
+ENTRYPOINT  ["/init-runner"]

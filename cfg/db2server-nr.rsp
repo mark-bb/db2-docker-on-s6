@@ -1,0 +1,161 @@
+PROD                      = DB2_SERVER_EDITION
+LIC_AGREEMENT             = ACCEPT         ** ACCEPT or DECLINE
+INSTALL_TYPE              = CUSTOM         ** TYPICAL, COMPACT, CUSTOM
+*FILE                      = /opt/ibm/db2/V{{ VR }}
+UPGRADE_PRIOR_VERSIONS    = TRUE
+
+** The following components are part of all TYPICAL installations. If you
+** perform a typical installation, all of these components will be installed on
+** your computer.
+** ----------------------------------------------------------------------------
+
+** DB2 Advanced Copy Services help protect mission-critical data that requires
+** 24x7 availability. It offers an integrated solution designed to implement
+** high-efficiency backup and restore processes and helps eliminate
+** backup-related performance issues.
+*COMP                     = ACS                                 ** Integrated Flash Copy Support
+
+** Provides federated support required to access DB2 for iSeries and DB2 for
+** z/OS and OS/390 data sources.
+COMP                     = DB2_DATA_SOURCE_SUPPORT             ** DB2 data source support
+
+** Sample database source provides sample data and metadata that allows you to
+** create a sample database using the First Steps application.
+COMP                     = DB2_SAMPLE_DATABASE                 ** Sample database source
+
+** DB2 Update Service is a web tool that lists the available DB2 product
+** updates, and provides details about product updates.  The DB2 Update Service
+** requires an internet connection.
+*COMP                     = DB2_UPDATE_SERVICE                  ** DB2 Update Service
+
+** Enables users and applications with Federated Data Source Access
+COMP                     = FED_DATA_SOURCE_SUPPORT             ** Federated Data Access Support
+
+** First Steps is a graphical tool that will help familiarize you with DB2
+** features and functions.
+*COMP                     = FIRST_STEPS                         ** First Steps
+
+** Guardium Installation Manager Client component will place the Guardium
+** Installation Manager(GIM) Client under DB2 Install Path.
+*COMP                     = GUARDIUM_INST_MNGR_CLIENT           ** Guardium Installation Manager Client
+
+** The DB2 Instance Setup wizard is a Java-based tool you can use to set up
+** instances on your computer after installing DB2.
+*COMP                     = INSTANCE_SETUP_SUPPORT              ** DB2 Instance Setup wizard
+
+** LDAP Exploitation allows DB2 to use an LDAP directory to store database
+** directory and configuration information.
+COMP                     = LDAP_EXPLOITATION                   ** DB2 LDAP support
+
+** IBM Tivoli System Automation for Multiplatforms provides high availability
+** and disaster recovery capabilities for AIX, Linux, Solaris SPARC, and
+** Windows.
+** If this component is selected, it will either be installed, updated or
+** upgraded by the DB2 installer. Use COMP=TSAMP only if you are running as
+** root user.
+*COMP                     = TSAMP                               ** Tivoli SA MP
+
+
+** The following components are not part of TYPICAL installations, and thus can
+** only be installed through CUSTOM installs.
+** ----------------------------------------------------------------------------
+
+** The base application development tools component contains tools and files
+** (including header files, libraries, and a precompiler) that are needed for
+** developing applications that work with DB2.
+COMP                     = APPLICATION_DEVELOPMENT_TOOLS       ** Base application development tools
+
+** A scalable, highly-available, high performance file system optimized for
+** multi-petabyte storage management.
+** If this component is selected, it will either be installed, updated or
+** upgraded by the DB2 installer.  Use COMP=GPFS only if you are running as
+** root user.
+*COMP                     = GPFS                                ** General Parallel File System (GPFS)
+
+** Application data sources use an application to access the underlying
+** nonrelational data.	The raw data can be in a number of standard and
+** nonstandard formats.
+*COMP                     = IINR_APPLICATIONS_WRAPPER           ** Application data sources
+
+** Scientific data sources are developed exclusively for the life sciences
+** industry, such as those containing genomic, proteomic, bioinformatic, and
+** cheminformatic information.
+*COMP                     = IINR_SCIENTIFIC_WRAPPER             ** Scientific Data Sources
+
+** Structured file data sources contain nonrelational data stored in files with
+** a defined, repeatable structure.
+*COMP                     = IINR_STRUCTURED_FILES_WRAPPER       ** Structured file data sources
+
+** Enables users and applications to submit distributed requests for data
+** managed by Informix systems.
+** This feature is only installed and not configured when the PURESCALE feature
+** is selected for installation.
+COMP                     = INFORMIX_DATA_SOURCE_SUPPORT        ** Informix data source support
+
+** Enables users and applications to submit distributed requests through JDBC
+** for data managed by DBMS.
+COMP                     = JDBC_DATA_SOURCE_SUPPORT            ** JDBC data source support
+
+** Enables users and applications to submit distributed requests for data
+** stored in any data source that supports ODBC and X/Open CLI compliant
+** drivers.
+COMP                     = ODBC_DATA_SOURCE_SUPPORT            ** ODBC data source support
+
+** Enables users and applications to submit distributed requests for data
+** managed by Oracle systems.
+COMP                     = ORACLE_DATA_SOURCE_SUPPORT          ** Oracle data source support
+
+** The IBM DB2 pureScale Feature provides clustering technology to DB2 products
+** on distributed platforms.
+** Selecting the PURESCALE feature will automatically install every other
+** required component. See the DB2 Information Center for more information on
+** the pre-installation planning and prerequisites needed for a successful IBM
+** DB2 pureScale installation and instance setup. Use COMP=PURESCALE only if
+** you are running as root user.
+*COMP                     = PURESCALE                           ** IBM DB2 pureScale Feature
+
+** Spatial Extender client contains the support required for communicating with
+** a Spatial Extender server.
+*COMP                     = SPATIAL_EXTENDER_CLIENT_SUPPORT     ** Spatial Extender client
+
+** Provides Spatial Extender support for the DB2 server, providing the storing
+** and query of geographical information in DB2 tables.
+*COMP                     = SPATIAL_EXTENDER_SERVER_SUPPORT     ** Spatial Extender server support
+
+** Enables users and applications to submit distributed requests for data
+** managed by Microsoft SQL Server systems.
+COMP                     = SQL_SERVER_DATA_SOURCE_SUPPORT      ** SQL Server data source support
+
+** Enables users and applications to submit distributed requests for data
+** managed by Sybase systems.
+COMP                     = SYBASE_DATA_SOURCE_SUPPORT          ** Sybase data source support
+
+** Enables users and applications to submit distributed requests for data
+** managed by Teradata systems.
+COMP                     = TERADATA_DATA_SOURCE_SUPPORT        ** Teradata data source support
+
+** The DB2 Text Search component, powered by OmniFind, delivers an integrated,
+** high quality and scalable search technology in DB2 databases.
+** This feature is only installed and not configured when the PURESCALE feature
+** is selected for installation.
+*COMP                     = TEXT_SEARCH                         ** DB2 Text Search
+
+** The following languages apply to all translated components. Enable the
+** language(s) you want installed. If you do not enable any language keywords,
+** then the English language (EN) will still be installed by default.
+** ---------------------------------------------------------------------------
+*LANG                     = BR              ** Portuguese - Brazil (pt_BR)
+*LANG                     = CN              ** Simplified Chinese (zh_CN)
+*LANG                     = CZ              ** Czech (cs_CZ)
+*LANG                     = DE              ** German (de_DE)
+*LANG                     = ES              ** Spanish (es_ES)
+*LANG                     = FR              ** French (fr_FR)
+*LANG                     = IT              ** Italian (it_IT)
+*LANG                     = JP              ** Japanese (ja_JP)
+*LANG                     = KR              ** Korean (ko_KR)
+*LANG                     = PL              ** Polish (pl_PL)
+*LANG                     = RU              ** Russian (ru_RU)
+*LANG                     = TW              ** Traditional Chinese (zh_TW)
+
+INSTANCE                  = DB2_INST        ** char(8)  no spaces
+DB2_INST.START_DURING_INSTALL = NO         ** YES or NO. Default is YES.

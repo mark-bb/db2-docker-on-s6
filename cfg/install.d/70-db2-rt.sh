@@ -4,6 +4,7 @@
 #
 
 set -x
+. "${ENV_FILES_DIR?}/db2.sh"
 . "${ENV_FILES_DIR?}/db2-rt.sh"
 
 DB2DISTR=$(ls "${DISTRIB_DIR?}"/db2/*.gz | grep -E "v${DB2_VRM?}_")
@@ -57,9 +58,9 @@ done
 groupadd -g ${DB2IGROUP_GID?} ${DB2IGROUP?}
 groupadd -g ${DB2FGROUP_GID?} ${DB2FGROUP?}
 
-[ ! -d "${CONFDIR?}" ] && mkdir -p "${CONFDIR?}"
-useradd -m -b ${CONFDIR?} -s /bin/bash -u ${DB2INSTANCE_UID?} -g ${DB2IGROUP?} ${DB2INSTANCE?}
-useradd -m -b ${CONFDIR?} -s /bin/bash -u ${DB2FUSER_UID?}    -g ${DB2FGROUP?} ${DB2FUSER?}
+[ ! -d "${BASEUSERDIR?}" ] && mkdir -p "${BASEUSERDIR?}"
+useradd -m -b ${BASEUSERDIR?} -s /bin/bash -u ${DB2INSTANCE_UID?} -g ${DB2IGROUP?} ${DB2INSTANCE?}
+useradd -m -b ${BASEUSERDIR?} -s /bin/bash -u ${DB2FUSER_UID?}    -g ${DB2FGROUP?} ${DB2FUSER?}
 for id in ${DB2INSTANCE_UID?} ${DB2FUSER_UID?}; do
   getent passwd ${id?} | cut -d':' -f6 | tee -a "${CONFIG_LIST_FILE?}"
 done

@@ -3,6 +3,7 @@
 set -x
 DIR="$(cd "$(dirname "$0")" && pwd -P)"
 . "${DIR?}/../scripts/utils.sh"
+. "${ENV_FILES_DIR?}/db2.sh"
 . "${ENV_FILES_DIR?}/db2-rt.sh"
 
 [ -n "${DB2INST1_PASSWORD}" ] && usermod -p "${DB2INST1_PASSWORD?}" ${DB2INSTANCE?}

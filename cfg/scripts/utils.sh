@@ -16,6 +16,8 @@ SHUTDOWN_SCRIPTS_DIR=/setup/shutdown.d
 ENV_FILES_DIR=/setup/utils.d
 DISTRIB_DIR=/tmp/distrib
 BACKUP_DIR=/setup/backup
+BASEUSERDIR=/database/config
+DATADIR=/database/data
 
 if command -v apt-get &>/dev/null; then
   export DEBIAN_FRONTEND=noninteractive

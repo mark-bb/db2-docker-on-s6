@@ -110,6 +110,7 @@ set -x
 declare -A pids
 DIR="$(cd "$(dirname "$0")" && pwd -P)"
 . "${DIR?}/utils.sh"
+. "${ENV_FILES_DIR?}/db2.sh"
 . "${ENV_FILES_DIR?}/db2-rt.sh"
 
 PID=$$

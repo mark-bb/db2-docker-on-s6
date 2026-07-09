@@ -4,6 +4,7 @@
 #
 
 set -x
+. "${ENV_FILES_DIR?}/db2.sh"
 . "${ENV_FILES_DIR?}/db2-nr.sh"
 
 DB2DISTR=$(ls "${DISTRIB_DIR?}"/db2/*.gz | grep -E "v${DB2_VRM?}_")
@@ -49,8 +50,8 @@ u=$(getent passwd ${DB2INSTANCE_UID?} 2>/dev/null) && userdel -r ${u%%:*}
 g=$(getent group  ${DB2IGROUP_GID?}   2>/dev/null) && groupdel   ${g%%:*}
 
 groupadd -g ${DB2IGROUP_GID?} ${DB2IGROUP?}
-mkdir -p "${CONFDIR?}"
-useradd -m -d ${USERHOME?} -s /bin/bash -u ${DB2INSTANCE_UID?} -g ${DB2IGROUP?} ${DB2INSTANCE?}
+[ -d "${BASEUSERDIR?}" ] || mkdir -p "${BASEUSERDIR?}"
+useradd -m -b ${BASEUSERDIR?} -s /bin/bash -u ${DB2INSTANCE_UID?} -g ${DB2IGROUP?} ${DB2INSTANCE?}
 getent passwd ${DB2INSTANCE?} | cut -d':' -f6 | tee -a "${CONFIG_LIST_FILE?}"
 
 # install -m 750 -o root -g root -d /etc/sudoers.d
